@@ -1,10 +1,12 @@
 import random
+import os
 
-def gen_sensor_metric():
-    locationString = ["smart home", "data center"]
+def gen_sensor_metric(location, collector):
+    # locationString = os.environ['LOCATION']
+    locationString = location
     locationValue = random.choice(locationString)
 
-    collectorValue = "raspberrypi-02"
+    collectorValue = collector
 
     # metricTypeString = ["Luminosity", "Temperature", "Humidity", "Air quality"]
     metricTypeString = ["luminosity", "temperature", "humidity"]

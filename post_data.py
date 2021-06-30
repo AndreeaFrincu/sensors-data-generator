@@ -3,10 +3,11 @@ import urllib
 import generator
 import requests
 import json
+import os
 
-def post_sensor_data():
-    payload = generator.gen_sensor_metric()
+def post_sensor_data(endpoint, location, collector):
+    payload = generator.gen_sensor_metric(location, collector)
     # print(payload)
     dump = json.dumps(payload)
     data = json.loads(dump)
-    requests.post(url="http://192.168.0.102:8080/api/metrics", json=data)
+    requests.post(url=endpoint, json=data)
