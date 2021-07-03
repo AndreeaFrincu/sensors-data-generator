@@ -2,14 +2,15 @@ import random
 import os
 
 def gen_sensor_metric(location, collector):
-    # locationString = os.environ['LOCATION']
-    locationString = location
-    locationValue = random.choice(locationString)
-
+    locationValue = location
     collectorValue = collector
+    metricTypeString = []
 
-    # metricTypeString = ["Luminosity", "Temperature", "Humidity", "Air quality"]
-    metricTypeString = ["luminosity", "temperature", "humidity"]
+    if locationValue == "smarthome":
+        metricTypeString = ["luminosity", "temperature", "humidity"]
+    elif locationValue == "datacenter":
+        metricTypeString = ["air", "temperature", "humidity"]
+
     metricType = random.choice(metricTypeString)
 
     if metricType == "luminosity":
@@ -23,5 +24,5 @@ def gen_sensor_metric(location, collector):
 
     # print(collectorValue + ' ' + metricType + ' ' + str(value) )
 
-    payload = {"location": locationValue, "collector": collectorValue, "metricType": metricType, "isSyncronized": "false", "value": str(value)}
-    return payload
+    data_to_post = {"location": locationValue, "collector": collectorValue, "metricType": metricType, "isSyncronized": "false", "value": str(value)}
+    return data_to_post
