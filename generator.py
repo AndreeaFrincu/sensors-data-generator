@@ -4,12 +4,12 @@ import os
 def gen_sensor_metric(location, collector):
     locationValue = location
     collectorValue = collector
-    # metricTypeString = []
+    metricTypeString = []
 
-    # if locationValue == "smarthome":
-    metricTypeString = ["luminosity", "temperature", "humidity"]
-    # elif locationValue == "datacenter":
-    #     metricTypeString = ["air", "temperature", "humidity"]
+    if locationValue == "smarthome":
+        metricTypeString = ["luminosity", "temperature", "humidity"]
+    elif locationValue == "datacenter":
+        metricTypeString = ["air", "temperature", "humidity"]
 
     metricType = random.choice(metricTypeString)
 
