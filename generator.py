@@ -11,16 +11,17 @@ def gen_sensor_metric(location, collector):
     elif locationValue == "datacenter":
         metricTypeString = ["air", "temperature", "humidity"]
 
-    metricType = random.choice(metricTypeString)
+    if len(metricTypeString) > 0:
+        metricType = random.choice(metricTypeString)
 
-    if metricType == "luminosity":
-        value = random.randint(150, 500)
-    elif metricType == "temperature":
-        value = round(random.uniform(15, 40), 1)
-    elif metricType == "humidity":
-        value = round(random.uniform(30, 50), 1)
-    elif metricType == "air":
-        value = random.randint(250, 2000)
+        if metricType == "luminosity":
+            value = random.randint(150, 500)
+        elif metricType == "temperature":
+            value = round(random.uniform(15, 40), 1)
+        elif metricType == "humidity":
+            value = round(random.uniform(30, 50), 1)
+        elif metricType == "air":
+            value = random.randint(250, 2000)
 
     # print(collectorValue + ' ' + metricType + ' ' + str(value) )
 
