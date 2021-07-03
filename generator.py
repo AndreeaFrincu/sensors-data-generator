@@ -19,7 +19,7 @@ def gen_sensor_metric(location, collector):
         value = round(random.uniform(15, 40), 1)
     elif metricType == "humidity":
         value = round(random.uniform(30, 50), 1)
-    else:
+    elif metricType == "air":
         value = random.randint(250, 2000)
 
     # print(collectorValue + ' ' + metricType + ' ' + str(value) )
